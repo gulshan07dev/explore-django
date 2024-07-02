@@ -5,10 +5,32 @@ Chai Details Page
 {% endblock %}
 
 {% block content %}
-<h1 class="text-3xl text-orange-500 font-semibold">Chai Detail Page</h1>
+<div class="container mx-auto">
+    <!-- Back Button -->
+    <div class="flex items-center mb-6">
+        <a href="/chai" class="flex items-center text-yellow-400 hover:text-yellow-600 transition-colors">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Back to All Chai
+        </a>
+    </div>
 
-<h1>{{ chai.name }}</h1>
-<p>{{ chai.description }}</p>
-<img src="{{ chai.image.url }}" alt="{{ chai.name }}">
-
+    <!-- Chai Details -->
+    <div class="bg-zinc-800 p-6 rounded-lg shadow-lg">
+        <h1 class="text-3xl text-orange-500 font-semibold mb-4">{{ chai.name }}</h1>
+        <div class="w-full flex gap-4 md:gap-8 max-md:flex-col">
+            <img src="{{ chai.image.url }}" alt="{{ chai.name }}" class="w-full md:w-[40%] h-80 object-cover rounded-lg mb-4">
+            <div class="w-full md:w-[55%]">
+                <p class="text-slate-50 text-lg">{{ chai.description }}</p>
+            </div>
+        </div>
+        <div class="flex justify-between items-center mt-6">
+            <div class="text-2xl text-white font-bold">₹{{ chai.price }}</div>
+            <a href="/chai/order/{{ chai.id }}"
+                class="px-4 py-2 bg-indigo-600 rounded-full hover:bg-indigo-700 text-white text-lg">Order Now</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

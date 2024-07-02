@@ -7,25 +7,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>
-        {% block title %}
-        Chai aur Django
-        {% endblock title %}
-    </title>
+    <title>{% block title %}Chai aur Django{% endblock title %}</title>
     {% tailwind_css %}
 </head>
 
 <body>
     <main class="sm:px-6 px-3 sm:py-5 py-4">
+        {% if not hide_navbar %}
         <nav class="h-16 bg-zinc-700 rounded-full flex items-center sm:gap-5 gap-4 sm:px-5 px-3.5">
             <a href="/" class="text-lg text-white hover:text-slate-400">Home</a>
             <a href="/chai" class="text-lg text-white hover:text-slate-400">All Chai</a>
             <a href="/about" class="text-lg text-white hover:text-slate-400">About</a>
             <a href="/contact" class="text-lg text-white hover:text-slate-400">Contact</a>
         </nav>
-        <main class="pt-8 min-h-full">
-            {% block content %}
-            {% endblock %}
+        {% endif %}
+        <main class="pt-8">
+            {% block content %}{% endblock %}
         </main>
     </main>
 </body>

@@ -7,4 +7,7 @@ def all_chai(request):
 
 def chai_detail(request, chai_id):
   chai = get_object_or_404(ChaiVariety, pk=chai_id)
-  return render(request, 'chai_detail.html', {'chai': chai})
+  return render(request, 'chai_detail.html', {'chai': chai, 'hide_navbar': True})
+
+def create_order(request, chai_id):
+  return render(request, 'under_construction.html', {'hide_navbar': True})
