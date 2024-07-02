@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+All Chai Page
+{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl text-orange-500 font-semibold">All Chai Page</h1>
+
+<div class="mt-10 px-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 gap-x-4 md:gap-y-7">
+    {% for chai in chais %}
+    <div
+        class="chai-item flex flex-col gap-3 p-4 bg-zinc-800 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+        <img src="{{ chai.image.url }}" alt="{{ chai.name }}" class="rounded-lg">
+        <div>
+            <h3 class="text-lg sm:text-xl font-semibold line-clamp-2 text-white">{{ chai.name }}</h3>
+            <p class="text-xs sm:text-sm text-slate-200 line-clamp-2">{{ chai.description }}</p>
+        </div>
+        <div class="w-full flex gap-2 items-center justify-between mt-4 p-2 bg-gray-700 rounded-lg">
+            <div class="flex gap-1 text-base sm:text-lg text-white font-bold">₹<span>{{ chai.price }}</span></div>
+            <a href="{% url 'chai_detail' chai.id %}"
+                class="px-4 py-1 bg-indigo-600 rounded-full hover:bg-indigo-700 text-sm sm:text-lg text-white">More
+                details</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

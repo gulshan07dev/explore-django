@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+Chai Details Page
+{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl text-orange-500 font-semibold">Chai Detail Page</h1>
+
+<h1>{{ chai.name }}</h1>
+<p>{{ chai.description }}</p>
+<img src="{{ chai.image.url }}" alt="{{ chai.name }}">
+
+{% endblock %}
